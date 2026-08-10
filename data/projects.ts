@@ -6,6 +6,7 @@ export interface Project {
   description: string;
   stack: string[];
   highlight: string;
+  thumb?: string; // path gambar di public/projects/, kosong = tampil tanpa gambar
 }
 
 export const categories = ["All", "Web App", "CMS", "Mobile"] as const;
@@ -15,29 +16,29 @@ export const projects: Project[] = [
     id: "mieayam-pos",
     title: "Mie Ayam Plombokan POS",
     category: "web",
-    year: "2026",
+    year: "2025",
     description:
-      "Point-of-sale system untuk usaha mie ayam: manajemen menu, transaksi, dan laporan penjualan. Aplikasi hybrid Android + dashboard web.",
+      "Point-of-sale offline-first untuk outlet: stok & transaksi jalan tanpa koneksi stabil, integrasi printer kasir & dapur, UI tablet-first untuk kasir cepat.",
     stack: ["React 19", "Vite", "Tailwind v4", "Capacitor", "Laravel 13", "SQLite"],
-    highlight: "POS + Android hybrid",
+    highlight: "Offline-first POS + Android",
   },
   {
     id: "cms-dombi",
-    title: "CMS Dombi",
+    title: "Dombi Commerce Platform",
     category: "cms",
     year: "2026",
     description:
-      "Content management system dengan notifikasi web push dan backup otomatis. Arsitektur monorepo backend + frontend Inertia.",
-    stack: ["Laravel 13", "Inertia", "React", "Web Push", "Backup"],
-    highlight: "Laravel + Inertia + Web Push",
+      "Platform commerce operational untuk distribusi produk segar harian: pesanan, pengiriman, kurir, dan manajemen pelanggan. Integrasi pembayaran DOKU (QRIS/Transfer/VA), Google OAuth, dan monitoring Sentry.",
+    stack: ["Laravel 13", "React 19", "Inertia", "DOKU", "Leaflet", "Sentry"],
+    highlight: "E-commerce + delivery + payment",
   },
   {
     id: "dombi-app",
-    title: "Dombi App",
+    title: "Dombi Mobile App",
     category: "mobile",
     year: "2026",
     description:
-      "Aplikasi mobile Android (Capacitor) yang terkoneksi dengan backend CMS Dombi — akses konten dan notifikasi di perangkat.",
+      "Aplikasi mobile Android (Capacitor) untuk platform commerce Dombi — akses katalog, pesanan, dan notifikasi langsung di perangkat.",
     stack: ["Capacitor", "Android", "Laravel API"],
     highlight: "Android app + Laravel API",
   },
@@ -47,28 +48,28 @@ export const projects: Project[] = [
     category: "web",
     year: "2025",
     description:
-      "Sistem presensi dengan pelacakan GPS (Leaflet), dashboard analitik (AmCharts), dan UI berbasis Material UI + Inertia React.",
-    stack: ["Laravel", "Inertia React", "MUI", "Leaflet", "AmCharts"],
-    highlight: "GPS tracking + analytics",
+      "Sistem presensi karyawan berbasis web dengan konfigurasi shift kerja, dashboard, dan PWA — Laravel 11 + Inertia React + MUI + AmCharts.",
+    stack: ["Laravel 11", "Inertia React", "MUI", "AmCharts", "PWA"],
+    highlight: "Presensi + shift kerja + PWA",
   },
   {
     id: "graha-mesran",
-    title: "Graha Motor POS",
+    title: "Graha Mesran POS",
     category: "web",
     year: "2025",
     description:
-      "Point-of-sale untuk dealer motor (Graha Mesran): admin Filament 3, frontend Inertia React dengan shadcn/Radix, plus aplikasi Android.",
-    stack: ["Laravel 12", "Filament 3", "Inertia React", "shadcn", "Capacitor"],
-    highlight: "Filament admin + React + Android",
+      "Point-of-sale untuk toko otomotif (sparepart & pelumas Pertamina): admin Filament untuk kontrol inventaris & laporan finansial, frontend kasir React yang cepat dan responsif.",
+    stack: ["Laravel 12", "Filament 3", "Inertia React", "Excel", "Capacitor"],
+    highlight: "Filament admin + React kasir",
   },
   {
-    id: "multi-tenant-pos",
-    title: "Multi-Tenant POS",
-    category: "web",
+    id: "dipo-feed",
+    title: "DipoFeed",
+    category: "mobile",
     year: "2025",
     description:
-      "Arsitektur point-of-sale multi-tenant: satu basis kode melayani banyak tenant dengan isolasi data, backend + frontend monorepo.",
-    stack: ["Laravel", "React", "Capacitor", "Multi-tenant"],
-    highlight: "Multi-tenant architecture",
+      "Aplikasi Flutter untuk peternak sapi perah: hitung, formulasi, dan evaluasi ransum pakan berdasarkan profil sapi & kandungan nutrisi bahan (BK, Protein Kasar, TDN, ME). Cross-platform Android/iOS/Web.",
+    stack: ["Flutter", "Dart", "Cross-platform"],
+    highlight: "Nutrisi ternak + Flutter",
   },
 ];

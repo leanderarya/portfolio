@@ -10,7 +10,7 @@ const cols: Record<string, string> = {
   "dombi-app": "md:col-span-4",
   "presensi-sims": "md:col-span-8",
   "graha-mesran": "md:col-span-4",
-  "multi-tenant-pos": "md:col-span-8",
+  "dipo-feed": "md:col-span-8",
 };
 
 const catLabel: Record<string, string> = { web: "Web App", cms: "CMS", mobile: "Mobile" };
@@ -51,6 +51,11 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
             className={`${cols[p.id] ?? "md:col-span-6"} bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 flex flex-col justify-between group hover:shadow-card-hover transition-all duration-300`}
           >
             <div>
+              {p.thumb && (
+                <div className="mb-4 rounded-xl overflow-hidden border border-[#E5E7EB]">
+                  <img src={p.thumb} alt={`${p.title} preview`} className="w-full h-40 object-cover" />
+                </div>
+              )}
               <div className="flex items-center justify-between mb-4">
                 <span className="px-3 py-1 bg-neutral-100 text-neutral-800 rounded-full text-xs font-semibold">
                   {catLabel[p.category]}
