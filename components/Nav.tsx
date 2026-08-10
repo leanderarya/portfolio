@@ -19,6 +19,18 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
           <span className="text-xl font-bold tracking-tight text-neutral-900">Ajisadda</span>
         </a>
 
+        <nav className="hidden lg:flex items-center gap-8">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm font-medium text-neutral-700 hover:text-black transition-colors"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
         <div className="flex items-center gap-4">
           <button
             onClick={onOpenContact}
@@ -31,7 +43,9 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
-            className="p-2.5 rounded-full bg-white border border-[#E5E7EB] text-neutral-800 hover:bg-neutral-50"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            className="lg:hidden p-2.5 rounded-full bg-white border border-[#E5E7EB] text-neutral-800 hover:bg-neutral-50"
           >
             {open ? <FaXmark className="text-lg" /> : <FaBars className="text-lg" />}
           </button>
@@ -39,7 +53,7 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
       </div>
 
       {open && (
-        <div className="border-b border-[#E5E7EB] bg-white px-6 py-6 space-y-4">
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation" className="lg:hidden border-b border-[#E5E7EB] bg-white px-6 py-6 space-y-4">
           {links.map((l) => (
             <a
               key={l.href}

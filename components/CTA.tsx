@@ -1,6 +1,7 @@
 "use client";
 
 import { FaArrowRight } from "react-icons/fa6";
+import { site } from "@/data/site";
 
 export default function CTA({ onOpenContact }: { onOpenContact: () => void }) {
   return (
@@ -20,8 +21,8 @@ export default function CTA({ onOpenContact }: { onOpenContact: () => void }) {
           <button onClick={onOpenContact} className="w-full sm:w-auto bg-lime hover:bg-lime-hover text-black font-bold text-sm px-8 py-4 rounded-full transition-all shadow-glow-lime">
             Start a Conversation <FaArrowRight className="inline ml-2" />
           </button>
-          <a href="mailto:arya.ajisadda@example.com" className="w-full sm:w-auto bg-neutral-800 hover:bg-neutral-700 text-white font-medium text-sm px-8 py-4 rounded-full border border-neutral-700 transition-colors">
-            arya.ajisadda@example.com
+          <a href={`mailto:${site.email}`} className="w-full sm:w-auto bg-neutral-800 hover:bg-neutral-700 text-white font-medium text-sm px-8 py-4 rounded-full border border-neutral-700 transition-colors">
+            {site.email}
           </a>
         </div>
       </div>

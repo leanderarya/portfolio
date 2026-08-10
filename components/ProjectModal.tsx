@@ -1,14 +1,29 @@
 "use client";
 
 import { FaXmark, FaLaptopCode } from "react-icons/fa6";
+import { useModal } from "@/hooks/useModal";
 import type { Project } from "@/data/projects";
 
 export default function ProjectModal({ project, onClose }: { project: Project | null; onClose: () => void }) {
+  const modalRef = useModal(onClose);
+
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border border-[#E5E7EB]">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Project details"
+        tabIndex={-1}
+        className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border border-[#E5E7EB]"
+      >
         <button onClick={onClose} aria-label="Close" className="absolute top-6 right-6 text-neutral-400 hover:text-black text-lg">
           <FaXmark />
         </button>

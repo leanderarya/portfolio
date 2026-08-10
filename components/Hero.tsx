@@ -59,9 +59,9 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
             <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gradient-to-b from-lime/30 to-white">
               <div className="absolute top-1/4 w-64 h-64 rounded-full bg-lime/60 blur-2xl" />
               <img
-                src="/portrait.jpg"
+                src="/portrait.png"
                 alt="Arya Ajisadda"
-                className="relative z-10 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                className="relative z-10 w-full h-full object-contain object-bottom grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-semibold text-neutral-800 shadow-sm">
                 <FaReact className="text-sky-500 mr-1.5 inline" /> Next.js 15
