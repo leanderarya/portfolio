@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lime: #bff542;
+  --color-lime-hover: #a3e635;
+  --color-dark: #18181b;
+  --color-dark-hover: #27272a;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-muted: #666666;
+  --color-brand-bg: #faf9f6;
+
+  --font-serif: "Playfair Display", "Instrument Serif", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --shadow-soft-ambient: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  --shadow-glow-lime: 0 0 50px 10px rgba(191, 245, 66, 0.45);
+}
+
+body {
+  background-color: #faf9f6;
+  color: #111111;
+  overflow-x: hidden;
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.mesh-gradient-bg {
+  background: radial-gradient(circle at 50% 40%, rgba(191, 245, 66, 0.8) 0%, rgba(220, 252, 148, 0.4) 35%, rgba(250, 249, 246, 0) 70%);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+::selection {
+  background-color: #bff542;
+  color: #000;
+}
