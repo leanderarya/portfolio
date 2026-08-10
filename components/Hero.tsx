@@ -38,9 +38,6 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
                   </span>
                 ))}
               </div>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Building robust web applications, CMS, point-of-sale systems, and mobile apps for clients.
-              </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
@@ -74,7 +71,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
 
           <div className="lg:col-span-3 order-3 flex flex-col justify-between space-y-6 text-center lg:text-left">
             <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-              Passionate about engineering robust web applications, CMS platforms, and POS systems from backend to frontend.
+              I build web applications, CMS platforms, and POS systems for clients — from backend architecture to pixel-ready frontend, shipped on time.
             </p>
             <div className="space-y-3">
               <button
