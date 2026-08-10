@@ -10,8 +10,8 @@
   --color-muted: #666666;
   --color-brand-bg: #faf9f6;
 
-  --font-serif: "Playfair Display", "Instrument Serif", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: var(--font-playfair), "Instrument Serif", serif;
+  --font-sans: var(--font-inter), sans-serif;
 
   --shadow-soft-ambient: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.08);

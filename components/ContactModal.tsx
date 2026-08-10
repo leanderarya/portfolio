@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 
 export default function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [sent, setSent] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  if (!open) return null;
+  useEffect(() => () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+  }, []);
+
+  useEffect(() => {
+    if (!open) setSent(false);
+  }, [open]);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,13 +26,19 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
     window.location.href = `mailto:arya.ajisadda@example.com?subject=${subject}&body=${body}`;
     setSent(true);
-    setTimeout(onClose, 2000);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(onClose, 2000);
+  }
+
+  function handleClose() {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    onClose();
   }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
       <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-[#E5E7EB]">
-        <button onClick={onClose} aria-label="Close" className="absolute top-6 right-6 text-neutral-400 hover:text-black text-lg">
+        <button onClick={handleClose} aria-label="Close" className="absolute top-6 right-6 text-neutral-400 hover:text-black text-lg">
           <FaXmark />
         </button>
 

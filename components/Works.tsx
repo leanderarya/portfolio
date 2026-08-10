@@ -18,7 +18,7 @@ const catLabel: Record<string, string> = { web: "Web App", cms: "CMS", mobile: "
 export default function Works({ onOpenProject }: { onOpenProject: (p: Project) => void }) {
   const [active, setActive] = useState("All");
 
-  const filtered = active === "All" ? projects : projects.filter((p) => p.category === active.toLowerCase());
+  const filtered = active === "All" ? projects : projects.filter((p) => catLabel[p.category] === active);
 
   return (
     <section id="works" className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
