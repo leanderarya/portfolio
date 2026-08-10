@@ -3,8 +3,8 @@ import { site } from "@/data/site";
 
 export default function Footer() {
   const socials = [
-    { name: "GitHub", url: site.github, icon: <FaGithub className="text-base" /> },
-    { name: "LinkedIn", url: site.linkedin, icon: <FaLinkedin className="text-base" /> },
+    { name: "GitHub", url: site.github && `https://github.com/${site.github}`, icon: <FaGithub className="text-base" /> },
+    { name: "LinkedIn", url: site.linkedin && `https://linkedin.com/in/${site.linkedin}`, icon: <FaLinkedin className="text-base" /> },
   ].filter((s) => s.url);
 
   return (
