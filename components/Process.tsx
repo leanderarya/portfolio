@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { FaDiagramProject, FaCode, FaRocket, FaArrowRightLong } from "react-icons/fa6";
+import { FaDiagramProject, FaCode, FaRocket } from "react-icons/fa6";
 import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const steps = [
@@ -44,27 +44,19 @@ export default function Process() {
       </Reveal>
 
       <div className="relative md:mt-8">
-        {/* konektor lime — segmen pendek di celah antar kartu, setinggi tengah kartu */}
+        {/* konektor lime — garis di celah antar kartu, setinggi tengah kartu */}
         {[1, 2].map((g) => (
           <motion.div
             key={g}
             aria-hidden
             className="absolute top-1/2 -translate-y-1/2 z-10 hidden md:block"
-            style={{ left: `calc(${g * 33.333}% - 14px)`, width: 28 }}
-            initial={rm ? false : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            style={{ left: `calc(${g * 33.333}% - 12px)`, width: 24 }}
+            initial={rm ? false : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.2, delay: rm ? 0 : 0.45 + g * 0.3 }}
+            transition={{ duration: 0.35, ease: EASE, delay: rm ? 0 : 0.45 + g * 0.3 }}
           >
-            <motion.div
-              className="flex items-center justify-center w-7 h-7 rounded-full bg-lime shadow-[0_0_0_6px_rgba(191,245,66,0.18)]"
-              initial={rm ? false : { scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ type: "spring", stiffness: 260, damping: 18, delay: rm ? 0 : 0.45 + g * 0.3 }}
-            >
-              <FaArrowRightLong className="text-[10px] text-neutral-900" />
-            </motion.div>
+            <div className="h-[3px] w-full rounded-full bg-gradient-to-r from-lime to-lime-hover shadow-[0_0_10px_rgba(191,245,66,0.4)]" />
           </motion.div>
         ))}
 
