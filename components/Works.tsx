@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { categories, projects, type Project } from "@/data/projects";
+import { EASE, DURATION } from "@/components/motion/primitives";
 
 const cols: Record<string, string> = {
   "mieayam-pos": "md:col-span-8",
@@ -17,6 +19,7 @@ const catLabel: Record<string, string> = { web: "Web App", cms: "CMS", mobile: "
 
 export default function Works({ onOpenProject }: { onOpenProject: (p: Project) => void }) {
   const [active, setActive] = useState("All");
+  const rm = useReducedMotion();
 
   const filtered = active === "All" ? projects : projects.filter((p) => catLabel[p.category] === active);
 
@@ -44,51 +47,63 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        {filtered.map((p) => (
-          <div
-            key={p.id}
-            className={`${cols[p.id] ?? "md:col-span-6"} bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 flex flex-col justify-between group hover:shadow-card-hover transition-all duration-300`}
-          >
-            <div>
-              {p.thumb && (
-                <div className="mb-4 rounded-xl overflow-hidden border border-[#E5E7EB] bg-neutral-100 flex items-center justify-center h-52">
-                  <img src={p.thumb} alt={`${p.title} preview`} className="w-full h-full object-contain" />
-                </div>
-              )}
-              <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 bg-neutral-100 text-neutral-800 rounded-full text-xs font-semibold">
-                  {catLabel[p.category]}
-                </span>
-                <span className="text-xs text-neutral-400">{p.year}</span>
-              </div>
-              <h3 className="text-2xl font-bold text-neutral-900">{p.title}</h3>
-              <p className="text-sm text-neutral-600 mt-2">{p.description}</p>
-            </div>
-
-            <div className="my-6 p-4 rounded-xl bg-brand-bg border border-[#E5E7EB] text-center">
-              <div className="text-xs font-bold text-neutral-900">{p.highlight}</div>
-            </div>
-
-            <div className="flex items-center justify-between pt-4 border-t border-[#E5E7EB]">
-              <div className="flex flex-wrap gap-1.5">
-                {p.stack.slice(0, 3).map((s) => (
-                  <span key={s} className="text-[11px] bg-brand-bg px-2 py-0.5 rounded text-neutral-600 border border-[#E5E7EB]">
-                    {s}
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <AnimatePresence mode="popLayout">
+          {filtered.map((p) => (
+            <motion.div
+              key={p.id}
+              layout
+              initial={rm ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={rm ? undefined : { opacity: 0, scale: 0.96 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: DURATION, ease: EASE }}
+              className={`${cols[p.id] ?? "md:col-span-6"} bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 flex flex-col justify-between group hover:shadow-card-hover transition-shadow duration-300`}
+            >
+              <div>
+                {p.thumb && (
+                  <div className="mb-4 rounded-xl overflow-hidden border border-[#E5E7EB] bg-neutral-100 flex items-center justify-center h-52">
+                    <img
+                      src={p.thumb}
+                      alt={`${p.title} preview`}
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 bg-neutral-100 text-neutral-800 rounded-full text-xs font-semibold">
+                    {catLabel[p.category]}
                   </span>
-                ))}
+                  <span className="text-xs text-neutral-400">{p.year}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900">{p.title}</h3>
+                <p className="text-sm text-neutral-600 mt-2">{p.description}</p>
               </div>
-              <button
-                onClick={() => onOpenProject(p)}
-                aria-label={`Open ${p.title}`}
-                className="p-2.5 rounded-full bg-neutral-100 hover:bg-lime text-neutral-900 transition-colors"
-              >
-                <FaArrowUpRightFromSquare className="text-xs" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+
+              <div className="my-6 p-4 rounded-xl bg-brand-bg border border-[#E5E7EB] text-center">
+                <div className="text-xs font-bold text-neutral-900">{p.highlight}</div>
+              </div>
+
+              <div className="flex items-center justify-between pt-4 border-t border-[#E5E7EB]">
+                <div className="flex flex-wrap gap-1.5">
+                  {p.stack.slice(0, 3).map((s) => (
+                    <span key={s} className="text-[11px] bg-brand-bg px-2 py-0.5 rounded text-neutral-600 border border-[#E5E7EB]">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <button
+                  onClick={() => onOpenProject(p)}
+                  aria-label={`Open ${p.title}`}
+                  className="p-2.5 rounded-full bg-neutral-100 hover:bg-lime text-neutral-900 transition-colors"
+                >
+                  <FaArrowUpRightFromSquare className="text-xs transition-transform duration-300 group-hover:rotate-45" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }
