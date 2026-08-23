@@ -57,6 +57,51 @@ export default function Process() {
           </div>
         ))}
       </div>
+
+      {/* Testimonials */}
+      <div className="mt-20 pt-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:divide-x md:divide-[#E5E7EB]/80">
+          <div className="pr-0 md:pr-8 space-y-6">
+            <div className="flex items-start justify-between">
+              <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                Working with Arya was seamless from start to finish. He understood our goals quickly,
+                asked the right questions, and delivered a system that scaled cleanly with our growing
+                web app.
+              </p>
+              <span className="text-2xl font-serif text-neutral-900 shrink-0 ml-4">”</span>
+            </div>
+            <div className="flex items-center gap-3 pt-2">
+              <div className="w-10 h-10 rounded-full bg-lime flex items-center justify-center text-xs font-bold text-neutral-900">
+                DR
+              </div>
+              <div>
+                <div className="text-xs font-bold text-neutral-900">Daniel Reed</div>
+                <div className="text-[11px] text-neutral-500">Founder of NovaLabs</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pl-0 md:pl-12 space-y-6">
+            <div className="flex items-start justify-between">
+              <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                Arya brought our product vision to life with incredible attention to detail. He
+                balanced business needs with solid engineering — our platform is not just beautiful,
+                but genuinely reliable.
+              </p>
+              <span className="text-2xl font-serif text-neutral-900 shrink-0 ml-4">”</span>
+            </div>
+            <div className="flex items-center gap-3 pt-2">
+              <div className="w-10 h-10 rounded-full bg-[#18181B] text-white flex items-center justify-center text-xs font-bold">
+                SN
+              </div>
+              <div>
+                <div className="text-xs font-bold text-neutral-900">Sarah Nguyen</div>
+                <div className="text-[11px] text-neutral-500">Product Manager at FlowSync</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

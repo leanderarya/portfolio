@@ -4,8 +4,10 @@ import { useState } from "react";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
+import Statement from "@/components/Statement";
 import Process from "@/components/Process";
 import Works from "@/components/Works";
+import Experience from "@/components/Experience";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
@@ -22,8 +24,10 @@ export default function Home() {
       <main>
         <Hero onOpenContact={() => setContactOpen(true)} />
         <TechMarquee />
+        <Statement />
         <Process />
         <Works onOpenProject={setActiveProject} />
+        <Experience />
         <CTA onOpenContact={() => setContactOpen(true)} />
       </main>
       <Footer />

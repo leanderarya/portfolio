@@ -8,28 +8,34 @@ export default function Footer() {
   ].filter((s) => s.url);
 
   return (
-    <footer className="bg-white border-t border-[#E5E7EB] py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <span className="font-editorial italic text-xl">Arya</span>
-          <span className="text-sm font-bold">Ajisadda</span>
-          <span className="text-xs text-neutral-400 ml-2">© 2026. All rights reserved.</span>
-        </div>
-        {socials.length > 0 && (
-          <div className="flex items-center gap-6 text-neutral-600 text-sm">
-            {socials.map((s) => (
-              <a
-                key={s.name}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-black transition-colors flex items-center gap-1.5"
-              >
-                {s.icon} {s.name}
-              </a>
-            ))}
+    <footer className="pt-12 pb-8 border-t border-[#E5E7EB] overflow-hidden bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-12 text-xs text-neutral-500 font-medium">
+          <div>
+            © {new Date().getFullYear()} {site.brand}. All rights reserved.
           </div>
-        )}
+          {socials.length > 0 && (
+            <div className="flex items-center gap-6">
+              {socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-neutral-900 transition-colors flex items-center gap-1.5"
+                >
+                  {s.icon} {s.name}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="text-center select-none pt-4 pointer-events-none">
+          <span className="block text-[12vw] sm:text-[11vw] font-editorial italic text-neutral-100 leading-none tracking-tighter">
+            {site.brand}
+          </span>
+        </div>
       </div>
     </footer>
   );

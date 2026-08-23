@@ -9,16 +9,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Arya Ajisadda — Software Engineer & Web Developer",
+  title: "Cahaya Arkana — Arya Ajisadda | Software Engineer",
   description:
-    "Software Engineer & Web Developer. Building robust web applications, CMS, POS systems, and mobile apps.",
+    "Cahaya Arkana. Software Engineer & Web Developer. Building robust web applications, CMS, POS systems, and mobile apps.",
   // ponytail: metadataBase pakai contoh domain Vercel. Ganti ke domain real
   // sebelum go-live (dipakai OG image URL absolut).
   metadataBase: new URL("https://aryajisadda.vercel.app"),
   openGraph: {
-    title: "Arya Ajisadda — Software Engineer & Web Developer",
+    title: "Cahaya Arkana — Arya Ajisadda | Software Engineer",
     description:
-      "Software Engineer & Web Developer. Building robust web applications, CMS, POS systems, and mobile apps.",
+      "Cahaya Arkana. Software Engineer & Web Developer. Building robust web applications, CMS, POS systems, and mobile apps.",
     type: "website",
     images: [{ url: "/portrait.png", alt: "Arya Ajisadda" }],
   },

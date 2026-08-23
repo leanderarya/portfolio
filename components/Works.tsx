@@ -7,8 +7,8 @@ import { categories, projects, type Project } from "@/data/projects";
 const cols: Record<string, string> = {
   "mieayam-pos": "md:col-span-8",
   "cms-dombi": "md:col-span-4",
-  "dombi-app": "md:col-span-4",
-  "presensi-sims": "md:col-span-8",
+  "cms-sidorejo": "md:col-span-8",
+  "presensi-sims": "md:col-span-4",
   "graha-mesran": "md:col-span-4",
   "dipo-feed": "md:col-span-8",
 };
@@ -52,8 +52,8 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
           >
             <div>
               {p.thumb && (
-                <div className="mb-4 rounded-xl overflow-hidden border border-[#E5E7EB]">
-                  <img src={p.thumb} alt={`${p.title} preview`} className="w-full h-40 object-cover" />
+                <div className="mb-4 rounded-xl overflow-hidden border border-[#E5E7EB] bg-neutral-100 flex items-center justify-center h-52">
+                  <img src={p.thumb} alt={`${p.title} preview`} className="w-full h-full object-contain" />
                 </div>
               )}
               <div className="flex items-center justify-between mb-4">
