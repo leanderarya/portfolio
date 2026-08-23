@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { FaExpand, FaImage } from "react-icons/fa6";
 import { categories, projects, type Project } from "@/data/projects";
 import { EASE, DURATION } from "@/components/motion/primitives";
 
@@ -58,47 +58,53 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
               exit={rm ? undefined : { opacity: 0, scale: 0.96 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: DURATION, ease: EASE }}
-              className={`${cols[p.id] ?? "md:col-span-6"} bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 flex flex-col justify-between group hover:shadow-card-hover transition-shadow duration-300`}
+              className={`${cols[p.id] ?? "md:col-span-6"} bg-white rounded-3xl border border-[#E5E7EB] p-4 sm:p-5 flex flex-col group hover:shadow-card-hover transition-shadow duration-300`}
             >
-              <div>
-                {p.thumb && (
-                  <div className="mb-4 rounded-xl overflow-hidden border border-[#E5E7EB] bg-neutral-100 flex items-center justify-center h-52">
-                    <img
-                      src={p.thumb}
-                      alt={`${p.title} preview`}
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                )}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 bg-neutral-100 text-neutral-800 rounded-full text-xs font-semibold">
-                    {catLabel[p.category]}
+              {/* Media — image-first */}
+              <button
+                onClick={() => onOpenProject(p)}
+                aria-label={`Open ${p.title}`}
+                className="relative block w-full aspect-[16/10] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-neutral-100 cursor-pointer"
+              >
+                {p.thumb ? (
+                  <img
+                    src={p.thumb}
+                    alt={`${p.title} preview`}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                ) : (
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 bg-gradient-to-br from-lime/25 via-brand-bg to-white px-6 text-center">
+                    <FaImage className="text-3xl text-neutral-300" />
+                    <span className="text-[11px] font-semibold text-neutral-500">{p.mediaHint}</span>
                   </span>
-                  <span className="text-xs text-neutral-400">{p.year}</span>
+                )}
+                <span className="absolute top-3 left-3 z-10 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[11px] font-semibold text-neutral-800 shadow-sm">
+                  {catLabel[p.category]}
+                </span>
+                <span className="absolute top-3 right-3 z-10 px-2.5 py-1 bg-white/90 backdrop-blur-md rounded-full text-[11px] font-medium text-neutral-500 shadow-sm">
+                  {p.year}
+                </span>
+                <span className="absolute bottom-3 right-3 z-10 p-2.5 rounded-full bg-lime text-neutral-900 shadow-md opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <FaExpand className="text-xs" />
+                </span>
+              </button>
+
+              {/* Body */}
+              <div className="flex flex-col flex-1 px-2 pt-5 pb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-neutral-900">{p.title}</h3>
+                <p className="text-sm text-neutral-600 mt-2 line-clamp-3">{p.description}</p>
+
+                <div className="mt-4 inline-flex self-start items-center gap-2 px-3.5 py-2 rounded-lg bg-brand-bg border border-[#E5E7EB]">
+                  <span className="text-xs font-bold text-neutral-900">{p.highlight}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-neutral-900">{p.title}</h3>
-                <p className="text-sm text-neutral-600 mt-2">{p.description}</p>
-              </div>
 
-              <div className="my-6 p-4 rounded-xl bg-brand-bg border border-[#E5E7EB] text-center">
-                <div className="text-xs font-bold text-neutral-900">{p.highlight}</div>
-              </div>
-
-              <div className="flex items-center justify-between pt-4 border-t border-[#E5E7EB]">
-                <div className="flex flex-wrap gap-1.5">
-                  {p.stack.slice(0, 3).map((s) => (
+                <div className="mt-auto pt-5 flex flex-wrap gap-1.5 border-t border-[#E5E7EB]/70 mt-5">
+                  {p.stack.slice(0, 4).map((s) => (
                     <span key={s} className="text-[11px] bg-brand-bg px-2 py-0.5 rounded text-neutral-600 border border-[#E5E7EB]">
                       {s}
                     </span>
                   ))}
                 </div>
-                <button
-                  onClick={() => onOpenProject(p)}
-                  aria-label={`Open ${p.title}`}
-                  className="p-2.5 rounded-full bg-neutral-100 hover:bg-lime text-neutral-900 transition-colors"
-                >
-                  <FaArrowUpRightFromSquare className="text-xs transition-transform duration-300 group-hover:rotate-45" />
-                </button>
               </div>
             </motion.div>
           ))}
