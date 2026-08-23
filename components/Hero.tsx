@@ -108,7 +108,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
 
             {/* Tengah — foto arch tanpa kartu */}
             <motion.div variants={portraitV} className="lg:col-span-6 order-1 lg:order-2 flex justify-center relative">
-              <div className="relative w-full max-w-sm aspect-[4/5] rounded-t-full overflow-hidden">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-t-full overflow-hidden">
                 <motion.img
                   src="/portrait.png"
                   alt="Arya Ajisadda"
