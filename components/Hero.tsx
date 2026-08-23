@@ -78,7 +78,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
             </span>
           </h1>
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Kiri — tipografi tanpa kotak */}
             <motion.div variants={fadeUpV} className="lg:col-span-3 order-2 lg:order-1 space-y-8 text-center lg:text-left">
               <div>
