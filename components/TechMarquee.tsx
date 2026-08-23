@@ -39,7 +39,7 @@ export default function TechMarquee() {
           Core Technologies & Ecosystem
         </span>
       </div>
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden marquee-mask">
         <div className="animate-marquee">
           <Row />
           <Row />
