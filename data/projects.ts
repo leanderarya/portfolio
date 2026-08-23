@@ -23,7 +23,6 @@ export const projects: Project[] = [
     stack: ["React 19", "Vite", "Tailwind v4", "Capacitor", "Laravel 13", "SQLite"],
     highlight: "Offline-first POS + Android",
     mediaHint: "Placeholder 1600×1000 · UI kasir tablet di outlet",
-    thumb: "/projects/mieayam.webp",
   },
   {
     id: "cms-dombi",
@@ -35,7 +34,6 @@ export const projects: Project[] = [
     stack: ["Laravel 13", "React 19", "Inertia", "DOKU", "Capacitor", "Sentry"],
     highlight: "E-commerce + delivery + payment + Android",
     mediaHint: "Placeholder 1600×1000 · Storefront katalog DombiCenter",
-    thumb: "/projects/dombi.webp",
   },
   {
     id: "cms-sidorejo",
@@ -47,7 +45,6 @@ export const projects: Project[] = [
     stack: ["Laravel 11", "Filament 3", "Tailwind", "Vite"],
     highlight: "Company profile + berita + admin Filament",
     mediaHint: "Placeholder 1600×1000 · Landing page company profile",
-    thumb: "/projects/comprosms.webp",
   },
   {
     id: "presensi-sims",
@@ -59,7 +56,6 @@ export const projects: Project[] = [
     stack: ["Laravel 11", "Inertia React", "MUI", "AmCharts", "PWA"],
     highlight: "Presensi + shift kerja + PWA",
     mediaHint: "Placeholder 1600×1000 · Dashboard presensi",
-    thumb: "/projects/presensi.webp",
   },
   {
     id: "graha-mesran",
