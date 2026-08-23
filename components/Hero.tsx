@@ -53,7 +53,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div variants={containerV} initial="hidden" animate="show">
           <motion.div variants={fadeUpV} className="flex justify-center md:justify-start mb-6">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-[#E5E7EB] text-xs font-medium text-neutral-800 shadow-sm">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#E5E7EB]/80 text-xs font-medium text-neutral-700">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-lime-500" />
@@ -62,15 +62,15 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
             </div>
           </motion.div>
 
-          <h1 className="mt-6 text-center md:text-left max-w-4xl text-4xl sm:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.08]">
+          <h1 className="mt-6 text-center md:text-left max-w-5xl text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-neutral-900 leading-[1.05]">
             <span className="block overflow-hidden pb-1">
               <motion.span variants={lineInnerV} className="block">
                 Hi, I&apos;m <span className="font-bold">Arya Ajisadda</span>,
               </motion.span>
             </span>
-            <span className="block overflow-hidden pb-2">
+            <span className="block overflow-hidden pb-3">
               <motion.span variants={lineInnerV} className="block">
-                <span className="font-editorial italic font-normal text-5xl sm:text-7xl text-neutral-900">
+                <span className="font-editorial italic font-normal text-5xl sm:text-7xl xl:text-8xl text-neutral-900">
                   Software Engineer
                 </span>{" "}
                 <span className="text-neutral-500 font-light">&amp;</span> Web Developer
@@ -78,65 +78,71 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
             </span>
           </h1>
 
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <motion.div variants={fadeUpV} className="lg:col-span-3 order-2 lg:order-1 flex flex-col justify-between space-y-6 text-center lg:text-left">
-              <div className="bg-white/80 border border-[#E5E7EB] p-5 rounded-2xl shadow-soft-ambient space-y-3">
-                <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-                  {["Full-Stack Web Apps", "CMS & Admin Panels", "POS Systems", "Android Apps"].map((t) => (
-                    <span key={t} className="px-2.5 py-1 bg-brand-bg border border-[#E5E7EB] rounded-md text-[11px] text-neutral-600">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Kiri — tipografi tanpa kotak */}
+            <motion.div variants={fadeUpV} className="lg:col-span-3 order-2 lg:order-1 space-y-8 text-center lg:text-left">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Focus</p>
+                <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
+                  Full-Stack Web Apps · CMS &amp; Admin Panels · POS Systems · Android Apps
+                </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white/70 border border-[#E5E7EB] p-3.5 rounded-xl text-center">
-                  <div className="text-xl font-bold text-neutral-900">Laravel</div>
-                  <div className="text-[11px] text-neutral-500 font-medium">API · Filament · Multi-tenant</div>
+              <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+                <div className="py-4 flex items-baseline gap-4 justify-center lg:justify-start">
+                  <span className="font-mono text-xs text-neutral-400">01</span>
+                  <div>
+                    <p className="text-2xl font-bold tracking-tight text-neutral-900">Laravel</p>
+                    <p className="mt-0.5 text-xs text-neutral-500">API · Filament · Multi-tenant</p>
+                  </div>
                 </div>
-                <div className="bg-white/70 border border-[#E5E7EB] p-3.5 rounded-xl text-center">
-                  <div className="text-xl font-bold text-neutral-900">React</div>
-                  <div className="text-[11px] text-neutral-500 font-medium">Next.js · Inertia · TypeScript</div>
+                <div className="py-4 flex items-baseline gap-4 justify-center lg:justify-start">
+                  <span className="font-mono text-xs text-neutral-400">02</span>
+                  <div>
+                    <p className="text-2xl font-bold tracking-tight text-neutral-900">React</p>
+                    <p className="mt-0.5 text-xs text-neutral-500">Next.js · Inertia · TypeScript</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
+            {/* Tengah — foto arch tanpa kartu */}
             <motion.div variants={portraitV} className="lg:col-span-6 order-1 lg:order-2 flex justify-center relative">
-              <div className="relative w-full max-w-2xl aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-b from-lime/30 to-white">
-                <div className="absolute top-1/4 w-64 h-64 rounded-full bg-lime/60 blur-2xl" />
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-t-full overflow-hidden">
                 <motion.img
                   src="/portrait.png"
                   alt="Arya Ajisadda"
                   style={rm ? undefined : { y: parallaxY }}
-                  className="relative z-10 w-full h-full object-contain object-center grayscale hover:grayscale-0 transition-all duration-700"
+                  className="absolute inset-0 h-full w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 />
-                <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-semibold text-neutral-800 shadow-sm">
+                <div className="absolute top-16 left-1/2 -translate-x-1/2 z-20 bg-white/85 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-800 whitespace-nowrap">
                   <FaReact className="text-sky-500 mr-1.5 inline" /> Next.js 15
                 </div>
-                <div className="absolute bottom-6 right-4 z-20 bg-[#18181B]/90 text-white px-3.5 py-1.5 rounded-full text-xs font-medium shadow-md">
+                <div className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 bg-[#18181B]/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">
                   <FaTerminal className="text-lime mr-1.5 inline" /> Full-Stack Developer
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUpV} className="lg:col-span-3 order-3 flex flex-col justify-between space-y-6 text-center lg:text-left">
+            {/* Kanan — bio + CTA */}
+            <motion.div variants={fadeUpV} className="lg:col-span-3 order-3 space-y-7 text-center lg:text-left">
               <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
                 I engineer web applications, CMS platforms, and POS systems that real businesses run on daily — owning everything from database schema to the final pixel, from first commit to production.
               </p>
               <div className="space-y-3">
                 <button
                   onClick={onOpenContact}
-                  className="group w-full inline-flex items-center justify-center gap-3 bg-[#18181B] hover:bg-[#27272A] text-white text-sm font-semibold px-6 py-3.5 rounded-full transition-all shadow-lg hover:-translate-y-0.5"
+                  className="group w-full inline-flex items-center justify-center gap-3 bg-[#18181B] hover:bg-[#27272A] text-white text-sm font-semibold px-6 py-4 rounded-full transition-all hover:-translate-y-0.5"
                 >
                   Get in Touch{" "}
                   <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
                 </button>
                 <a
                   href="#works"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 border border-[#E5E7EB] text-neutral-800 text-sm font-medium px-6 py-3 rounded-full"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-neutral-800 hover:text-black"
                 >
                   Explore Selected Works
+                  <span className="inline-block h-px w-6 bg-current transition-all duration-300 group-hover:w-9" />
                 </a>
               </div>
             </motion.div>
