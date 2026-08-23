@@ -8,7 +8,7 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion";
-import { FaArrowRight, FaReact, FaTerminal } from "react-icons/fa6";
+import { FaArrowRight, FaTerminal } from "react-icons/fa6";
 import { EASE, DURATION } from "@/components/motion/primitives";
 
 export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
@@ -115,9 +115,6 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
                   style={rm ? undefined : { y: parallaxY }}
                   className="absolute inset-0 h-full w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 />
-                <div className="absolute top-16 left-1/2 -translate-x-1/2 z-20 bg-white/85 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-800 whitespace-nowrap">
-                  <FaReact className="text-sky-500 mr-1.5 inline" /> Next.js 15
-                </div>
                 <div className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 bg-[#18181B]/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">
                   <FaTerminal className="text-lime mr-1.5 inline" /> Full-Stack Developer
                 </div>
