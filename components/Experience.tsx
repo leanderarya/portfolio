@@ -11,7 +11,7 @@ const history = [
     period: "2025 — Present",
   },
   {
-    role: "Informatics Student",
+    role: "Informatics Graduate",
     org: "Diponegoro University — built Presensi SMS & PT Sidorejo Makmur Sejahtera CMS during studies",
     period: "2022 — 2026",
   },
@@ -30,7 +30,7 @@ export default function Experience() {
             <span className="font-editorial italic font-normal text-neutral-500">since 2025</span>
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-2">
-            Arya Ajisadda is a full-stack developer and Informatics student at Diponegoro
+            Arya Ajisadda is a full-stack developer and Informatics graduate of Diponegoro
             University, focused on robust web applications, CMS platforms, and POS systems —
             from backend architecture to accessible, pixel-perfect frontends.
           </p>
