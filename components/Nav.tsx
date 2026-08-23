@@ -1,11 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "framer-motion";
 import { FaBars, FaXmark, FaArrowRight } from "react-icons/fa6";
 import { site } from "@/data/site";
+import { EASE } from "@/components/motion/primitives";
 
 export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const rm = useReducedMotion();
+
   const links = [
     { href: "#about", label: "About Me" },
     { href: "#process", label: "How I Work" },
@@ -13,8 +25,23 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
     { href: "#works", label: "Selected Works" },
   ];
 
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setHidden(!rm && y > prev && y > 120);
+    setScrolled(y > 24);
+  });
+
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-[#FAF9F6]/80 border-b border-[#E5E7EB]/60">
+    <motion.header
+      animate={{ y: hidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.3, ease: EASE }}
+      className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-300 ${
+        scrolled
+          ? "bg-[#FAF9F6]/95 border-[#E5E7EB] shadow-sm"
+          : "bg-[#FAF9F6]/80 border-[#E5E7EB]/60"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-xs tracking-tighter group-hover:bg-lime group-hover:text-neutral-900 transition-colors">
@@ -31,7 +58,7 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-neutral-700 hover:text-black transition-colors"
+              className="nav-link text-sm font-medium text-neutral-700 hover:text-black transition-colors"
             >
               {l.label}
             </a>
@@ -41,10 +68,10 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
         <div className="flex items-center gap-4">
           <button
             onClick={onOpenContact}
-            className="hidden sm:inline-flex items-center gap-2 bg-[#18181B] hover:bg-[#27272A] text-white text-xs md:text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
+            className="group hidden sm:inline-flex items-center gap-2 bg-[#18181B] hover:bg-[#27272A] text-white text-xs md:text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
           >
             Get in Touch
-            <FaArrowRight className="text-xs" />
+            <FaArrowRight className="text-xs transition-transform group-hover:translate-x-0.5" />
           </button>
 
           <button
@@ -59,29 +86,42 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
         </div>
       </div>
 
-      {open && (
-        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation" className="lg:hidden border-b border-[#E5E7EB] bg-white px-6 py-6 space-y-4">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-neutral-800 hover:text-black"
-            >
-              {l.label}
-            </a>
-          ))}
-          <button
-            onClick={() => {
-              setOpen(false);
-              onOpenContact();
-            }}
-            className="w-full text-center bg-[#18181B] text-white text-sm font-medium py-3 rounded-full"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
+            initial={rm ? false : { height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: EASE }}
+            className="lg:hidden overflow-hidden border-b border-[#E5E7EB] bg-white"
           >
-            Get in Touch →
-          </button>
-        </div>
-      )}
-    </header>
+            <div className="px-6 py-6 space-y-4">
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-sm font-medium text-neutral-800 hover:text-black"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  onOpenContact();
+                }}
+                className="w-full text-center bg-[#18181B] text-white text-sm font-medium py-3 rounded-full"
+              >
+                Get in Touch →
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
