@@ -1,4 +1,8 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/data/site";
+import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const history = [
   {
@@ -19,11 +23,13 @@ const history = [
 ];
 
 export default function Experience() {
+  const rm = useReducedMotion();
+
   return (
     <section id="experience" className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        <div className="md:col-span-5 space-y-4">
-          <span className="text-xs font-bold text-lime-600 uppercase tracking-widest">Background</span>
+        <Reveal className="md:col-span-5 space-y-4">
+          <span className="block text-xs font-bold text-lime-600 uppercase tracking-widest">Background</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900">
             Building production software{" "}
             <span className="font-editorial italic font-normal text-neutral-500">since 2018</span>
@@ -53,21 +59,31 @@ export default function Experience() {
               LinkedIn ↗
             </a>
           </div>
-        </div>
+        </Reveal>
 
         <div className="md:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E7EB] space-y-6">
-          {history.map((h, i) => (
-            <div
-              key={h.role}
-              className={`flex items-center justify-between ${i < history.length - 1 ? "border-b border-[#E5E7EB] pb-4" : ""}`}
-            >
-              <div>
-                <h4 className="font-bold text-neutral-900 text-sm sm:text-base">{h.role}</h4>
-                <p className="text-xs text-neutral-500">{h.org}</p>
+          <Stagger gap={0.12}>
+            {history.map((h, i) => (
+              <div key={h.role}>
+                <StaggerItem x={32} className="flex items-center justify-between gap-4">
+                  <div>
+                    <h4 className="font-bold text-neutral-900 text-sm sm:text-base">{h.role}</h4>
+                    <p className="text-xs text-neutral-500">{h.org}</p>
+                  </div>
+                  <span className="shrink-0 text-xs font-bold text-neutral-500 font-mono">{h.period}</span>
+                </StaggerItem>
+                {i < history.length - 1 && (
+                  <motion.div
+                    className="mt-6 mb-6 h-px w-full bg-[#E5E7EB] origin-left"
+                    initial={rm ? false : { scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
+                  />
+                )}
               </div>
-              <span className="text-xs font-bold text-neutral-500 font-mono">{h.period}</span>
-            </div>
-          ))}
+            ))}
+          </Stagger>
         </div>
       </div>
     </section>
