@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { FaDiagramProject, FaCode, FaRocket } from "react-icons/fa6";
-import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const steps = [
   {
