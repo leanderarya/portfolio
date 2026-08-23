@@ -65,7 +65,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
           <h1 className="mt-6 text-center md:text-left max-w-4xl text-4xl sm:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.08]">
             <span className="block overflow-hidden pb-1">
               <motion.span variants={lineInnerV} className="block">
-                Hi I&apos;m <span className="font-bold">Arya Ajisadda</span>,
+                Hi, I&apos;m <span className="font-bold">Arya Ajisadda</span>,
               </motion.span>
             </span>
             <span className="block overflow-hidden pb-2">
