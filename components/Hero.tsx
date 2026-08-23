@@ -82,7 +82,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
             <motion.div variants={fadeUpV} className="lg:col-span-3 order-2 lg:order-1 flex flex-col justify-between space-y-6 text-center lg:text-left">
               <div className="bg-white/80 border border-[#E5E7EB] p-5 rounded-2xl shadow-soft-ambient space-y-3">
                 <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-                  {["Web App", "CMS", "POS", "Mobile"].map((t) => (
+                  {["Full-Stack Web Apps", "CMS & Admin Panels", "POS Systems", "Android Apps"].map((t) => (
                     <span key={t} className="px-2.5 py-1 bg-brand-bg border border-[#E5E7EB] rounded-md text-[11px] text-neutral-600">
                       {t}
                     </span>
@@ -93,11 +93,11 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-white/70 border border-[#E5E7EB] p-3.5 rounded-xl text-center">
                   <div className="text-xl font-bold text-neutral-900">Laravel</div>
-                  <div className="text-[11px] text-neutral-500 font-medium">Backend</div>
+                  <div className="text-[11px] text-neutral-500 font-medium">API · Filament · Multi-tenant</div>
                 </div>
                 <div className="bg-white/70 border border-[#E5E7EB] p-3.5 rounded-xl text-center">
                   <div className="text-xl font-bold text-neutral-900">React</div>
-                  <div className="text-[11px] text-neutral-500 font-medium">Frontend</div>
+                  <div className="text-[11px] text-neutral-500 font-medium">Next.js · Inertia · TypeScript</div>
                 </div>
               </div>
             </motion.div>
@@ -122,7 +122,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
 
             <motion.div variants={fadeUpV} className="lg:col-span-3 order-3 flex flex-col justify-between space-y-6 text-center lg:text-left">
               <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                I build web applications, CMS platforms, and POS systems for clients — from backend architecture to pixel-ready frontend, shipped on time.
+                I engineer web applications, CMS platforms, and POS systems that real businesses run on daily — owning everything from database schema to the final pixel, from first commit to production.
               </p>
               <div className="space-y-3">
                 <button

@@ -6,19 +6,14 @@ import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion/primitiv
 
 const history = [
   {
-    role: "Software Engineer / Full-Stack Developer",
+    role: "Freelance Full-Stack Developer",
     org: "Freelance & Client Projects",
-    period: "2021 — Present",
+    period: "2025 — Present",
   },
   {
-    role: "Web Developer (Laravel / React)",
-    org: "Enterprise POS & CMS Solutions",
-    period: "2020 — 2021",
-  },
-  {
-    role: "Frontend Developer",
-    org: "Digital Product Projects",
-    period: "2018 — 2020",
+    role: "Informatics Student",
+    org: "Diponegoro University — built Presensi SMS & PT Sidorejo Makmur Sejahtera CMS during studies",
+    period: "2022 — 2026",
   },
 ];
 
@@ -32,12 +27,12 @@ export default function Experience() {
           <span className="block text-xs font-bold text-lime-600 uppercase tracking-widest">Background</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900">
             Building production software{" "}
-            <span className="font-editorial italic font-normal text-neutral-500">since 2018</span>
+            <span className="font-editorial italic font-normal text-neutral-500">since 2025</span>
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-2">
-            Arya Ajisadda is a full-stack software engineer focused on robust web applications,
-            CMS platforms, and POS systems — from backend architecture to accessible, pixel-perfect
-            frontends.
+            Arya Ajisadda is a full-stack developer and Informatics student at Diponegoro
+            University, focused on robust web applications, CMS platforms, and POS systems —
+            from backend architecture to accessible, pixel-perfect frontends.
           </p>
 
           <div className="pt-4 flex items-center gap-3 text-xs font-semibold text-neutral-700">

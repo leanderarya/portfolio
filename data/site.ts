@@ -2,7 +2,7 @@
 export const site = {
   name: 'Arya Ajisadda',
   brand: 'Cahaya Arkana',
-  email: 'aryaajisadda@gmail.com',
+  email: 'cahayaarkana14@gmail.com',
   // username tanpa https://. Kosong = link footer disembunyikan.
   github: 'leanderarya',
   linkedin: 'aryaajisadda',

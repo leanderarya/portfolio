@@ -25,7 +25,7 @@ export const projects: Project[] = [
   },
   {
     id: "cms-dombi",
-    title: "Dombi",
+    title: "DombiCenter CMS and E-Commerce",
     category: "cms",
     year: "2026",
     description:
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   },
   {
     id: "cms-sidorejo",
-    title: "Sidorejo Makmur Sejahtera CMS",
+    title: "PT Sidorejo Makmur Sejahtera CMS",
     category: "cms",
     year: "2025",
     description:
