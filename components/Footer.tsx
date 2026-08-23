@@ -1,5 +1,8 @@
+"use client";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { site } from "@/data/site";
+import { Reveal } from "@/components/motion/primitives";
 
 export default function Footer() {
   const socials = [
@@ -22,7 +25,7 @@ export default function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-neutral-900 transition-colors flex items-center gap-1.5"
+                  className="hover:text-neutral-900 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-1.5"
                 >
                   {s.icon} {s.name}
                 </a>
@@ -31,11 +34,11 @@ export default function Footer() {
           )}
         </div>
 
-        <div className="text-center select-none pt-4 pointer-events-none">
+        <Reveal y={16} className="text-center select-none pt-4 pointer-events-none">
           <span className="block text-[12vw] sm:text-[11vw] font-editorial italic text-neutral-100 leading-none tracking-tighter">
             {site.brand}
           </span>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );
