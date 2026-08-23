@@ -26,8 +26,8 @@ export default function Statement() {
 
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-neutral-900 leading-snug mt-4">
           <motion.span className="inline-block" {...phraseIn(0)}>
-            I build by blending{" "}
-          </motion.span>
+            I build by blending
+          </motion.span>{" "}
           <span className="relative inline-block font-bold">
             clear architecture
             <motion.span
