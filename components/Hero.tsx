@@ -47,7 +47,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
       };
 
   return (
-    <section id="about" ref={sectionRef} className="relative pt-8 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative pt-8 pb-12 md:pt-14 md:pb-16 overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-bg pointer-events-none -z-10 opacity-90" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +108,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
 
             {/* Tengah — foto arch tanpa kartu */}
             <motion.div variants={portraitV} className="lg:col-span-6 order-1 lg:order-2 flex justify-center relative">
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-t-full overflow-hidden">
+              <div className="relative w-full max-w-sm aspect-[4/5] rounded-t-full overflow-hidden">
                 <motion.img
                   src="/portrait.png"
                   alt="Arya Ajisadda"
