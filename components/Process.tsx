@@ -45,18 +45,21 @@ export default function Process() {
 
       <div className="relative md:mt-8">
         {/* konektor lime — garis di celah antar kartu, setinggi tengah kartu */}
-        {[1, 2].map((g) => (
+        {[
+          "calc((100% - 3rem) / 3)",
+          "calc((100% - 3rem) / 3 * 2 + 3rem)",
+        ].map((left, i) => (
           <motion.div
-            key={g}
+            key={i}
             aria-hidden
             className="absolute top-1/2 -translate-y-1/2 z-10 hidden md:block"
-            style={{ left: `calc(${g * 33.333}% - 12px)`, width: 24 }}
+            style={{ left, width: "1.5rem" }}
             initial={rm ? false : { scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.35, ease: EASE, delay: rm ? 0 : 0.45 + g * 0.3 }}
+            transition={{ duration: 0.35, ease: EASE, delay: rm ? 0 : 0.45 + (i + 1) * 0.3 }}
           >
-            <div className="h-[3px] w-full rounded-full bg-gradient-to-r from-lime to-lime-hover shadow-[0_0_10px_rgba(191,245,66,0.4)]" />
+            <div className="h-[3px] w-full rounded-none bg-gradient-to-r from-lime to-lime-hover shadow-[0_0_10px_rgba(191,245,66,0.4)]" />
           </motion.div>
         ))}
 
