@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { FaImage } from "react-icons/fa6";
 import { site } from "@/data/site";
 import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
 
@@ -26,11 +25,12 @@ export default function Experience() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-start">
         {/* Kiri — foto sebagai anchor */}
         <Reveal className="md:col-span-5">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-gradient-to-br from-lime/25 via-brand-bg to-white flex flex-col items-center justify-center gap-2.5 group cursor-pointer">
-            <FaImage className="text-3xl text-neutral-300 transition-colors group-hover:text-lime" />
-            <span className="px-6 text-center text-[11px] font-semibold text-neutral-500">
-              Placeholder 1600×1000 · Foto pribadi
-            </span>
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-neutral-100">
+            <img
+              src="/arya-1610.webp"
+              alt="Arya Ajisadda"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
 
           <p className="mt-5 text-xs sm:text-sm text-neutral-600 leading-relaxed">
