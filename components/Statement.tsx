@@ -29,7 +29,7 @@ export default function Statement() {
             I build by blending
           </motion.span>{" "}
           <span className="relative inline-block font-bold">
-            clear architecture
+            clear architecture,
             <motion.span
               aria-hidden
               className="absolute left-0 -bottom-1 h-1 w-full bg-lime origin-left rounded-full"
@@ -40,7 +40,7 @@ export default function Statement() {
             />
           </span>
           <motion.span className="inline-block" {...phraseIn(0.2)}>
-            , quality-first engineering, and user empathy to{" "}
+            quality-first engineering, and user empathy to{" "}
             <span className="font-editorial italic">craft products</span> that solve real problems.
           </motion.span>
         </h2>
