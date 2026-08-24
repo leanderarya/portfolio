@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { LuLayers, LuCodeXml, LuRocket, LuPenTool } from "react-icons/lu";
 import { EASE, Stagger, StaggerItem } from "@/components/motion/primitives";
 
 const pills = [
-  "⚡ System Architecture",
-  "🎯 Clean Code & Type Safety",
-  "🚀 CI/CD & Cloud",
-  "🎨 Pixel-Precise Frontend",
+  { icon: <LuLayers className="text-base text-lime-600" />, label: "System Architecture" },
+  { icon: <LuCodeXml className="text-base text-lime-600" />, label: "Clean Code & Type Safety" },
+  { icon: <LuRocket className="text-base text-lime-600" />, label: "CI/CD & Cloud" },
+  { icon: <LuPenTool className="text-base text-lime-600" />, label: "Pixel-Precise Frontend" },
 ];
 
 export default function Statement() {
@@ -47,9 +48,10 @@ export default function Statement() {
 
         <Stagger className="flex flex-wrap items-center justify-center gap-2.5 mt-8 sm:mt-10" gap={0.07}>
           {pills.map((p) => (
-            <StaggerItem key={p} y={14}>
-              <span className="inline-block px-4 py-2 rounded-full bg-white border border-[#E5E7EB] shadow-sm text-xs font-semibold text-neutral-700">
-                {p}
+            <StaggerItem key={p.label} y={14}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E5E7EB] shadow-sm text-xs font-semibold text-neutral-700">
+                {p.icon}
+                {p.label}
               </span>
             </StaggerItem>
           ))}
