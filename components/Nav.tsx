@@ -44,9 +44,11 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-xs tracking-tighter group-hover:bg-lime group-hover:text-neutral-900 transition-colors">
-            CA
-          </div>
+          <img
+            src="/logo.png"
+            alt={`${site.brand} logo`}
+            className="h-9 w-9 object-contain"
+          />
           <span className="flex flex-col leading-none">
             <span className="font-bold text-sm tracking-tight text-neutral-900">{site.brand}</span>
             <span className="text-[10px] text-neutral-500 font-medium mt-0.5">{site.name}</span>
