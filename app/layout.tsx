@@ -12,15 +12,13 @@ export const metadata: Metadata = {
   title: "Cahaya Arkana — Arya Ajisadda | Software Engineer",
   description:
     "Cahaya Arkana. Software Engineer & Web Developer. Building robust web applications, CMS, POS systems, and mobile apps.",
-  // ponytail: metadataBase pakai contoh domain Vercel. Ganti ke domain real
-  // sebelum go-live (dipakai OG image URL absolut).
-  metadataBase: new URL("https://aryajisadda.vercel.app"),
+  metadataBase: new URL("https://cahayaarkana.site"),
   openGraph: {
     title: "Cahaya Arkana — Arya Ajisadda | Software Engineer",
     description:
       "Cahaya Arkana. Software Engineer & Web Developer. Building robust web applications, CMS, POS systems, and mobile apps.",
     type: "website",
-    images: [{ url: "/portrait.png", alt: "Arya Ajisadda" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Cahaya Arkana — Arya Ajisadda" }],
   },
   themeColor: "#BFF542",
 };
