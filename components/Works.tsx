@@ -67,16 +67,22 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
                 className="relative block w-full aspect-[16/10] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-neutral-100 cursor-pointer"
               >
                 {p.thumb ? (
-                  <img
+                  <motion.img
+                    layoutId={rm ? undefined : `proj-media-${p.id}`}
                     src={p.thumb}
                     alt={`${p.title} preview`}
+                    style={{ borderRadius: 15 }}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 ) : (
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 bg-gradient-to-br from-lime/25 via-brand-bg to-white px-6 text-center">
+                  <motion.span
+                    layoutId={rm ? undefined : `proj-media-${p.id}`}
+                    style={{ borderRadius: 15 }}
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 bg-gradient-to-br from-lime/25 via-brand-bg to-white px-6 text-center"
+                  >
                     <FaImage className="text-3xl text-neutral-300" />
                     <span className="text-[11px] font-semibold text-neutral-500">{p.mediaHint}</span>
-                  </span>
+                  </motion.span>
                 )}
                 <span className="absolute top-3 left-3 z-10 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[11px] font-semibold text-neutral-800 shadow-sm">
                   {catLabel[p.category]}

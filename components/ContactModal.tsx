@@ -29,7 +29,7 @@ export default function ContactModal({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           if (timerRef.current) clearTimeout(timerRef.current);

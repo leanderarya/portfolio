@@ -11,6 +11,10 @@ export function useModal(onClose: () => void) {
     const el = ref.current;
     if (!el) return;
 
+    // kunci scroll background saat modal terbuka
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const modal = el;
     const prevActive = document.activeElement as HTMLElement | null;
     modal.focus();
@@ -41,6 +45,7 @@ export function useModal(onClose: () => void) {
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
       prevActive?.focus();
     };
   }, [onClose]);
