@@ -45,8 +45,11 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
           <img
-            src="/logo.png"
+            src="/logo-108.png"
             alt={`${site.brand} logo`}
+            width={108}
+            height={108}
+            decoding="async"
             className="h-9 w-9 object-contain"
           />
           <span className="flex flex-col leading-none">

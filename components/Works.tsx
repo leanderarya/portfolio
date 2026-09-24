@@ -71,6 +71,10 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
                     layoutId={rm ? undefined : `proj-media-${p.id}`}
                     src={p.thumb}
                     alt={`${p.title} preview`}
+                    width={1600}
+                    height={1000}
+                    loading="lazy"
+                    decoding="async"
                     style={{ borderRadius: 15 }}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />

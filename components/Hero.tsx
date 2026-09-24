@@ -112,6 +112,10 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
                 <motion.img
                   src="/arya-nobg.webp"
                   alt="Arya Ajisadda"
+                  width={1200}
+                  height={1500}
+                  fetchPriority="high"
+                  decoding="async"
                   style={rm ? undefined : { y: parallaxY }}
                   className="absolute inset-0 h-full w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 />
