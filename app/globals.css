@@ -107,4 +107,9 @@ html.lenis .hero-parallax {
   .animate-glow-pulse {
     animation: none;
   }
+
+  .animate-marquee,
+  .animate-ping {
+    animation: none;
+  }
 }

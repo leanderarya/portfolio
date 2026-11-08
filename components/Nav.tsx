@@ -84,7 +84,7 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
             aria-label="Toggle menu"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="lg:hidden p-2.5 rounded-full bg-white border border-[#E5E7EB] text-neutral-800 hover:bg-neutral-50"
+            className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full bg-white border border-[#E5E7EB] p-0 text-neutral-800 hover:bg-neutral-50"
           >
             {open ? <FaXmark className="text-lg" /> : <FaBars className="text-lg" />}
           </button>
@@ -109,7 +109,7 @@ export default function Nav({ onOpenContact }: { onOpenContact: () => void }) {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-sm font-medium text-neutral-800 hover:text-black"
+                  className="flex min-h-11 items-center text-sm font-medium text-neutral-800 hover:text-black"
                 >
                   {l.label}
                 </a>

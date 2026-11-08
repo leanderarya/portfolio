@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaXmark, FaCircleCheck } from "react-icons/fa6";
 import { useModal } from "@/hooks/useModal";
@@ -8,6 +8,7 @@ import { site } from "@/data/site";
 
 export default function ContactModal({ onClose }: { onClose: () => void }) {
   const [sent, setSent] = useState(false);
+  const fieldId = useId();
   const rm = useReducedMotion();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const modalRef = useModal(onClose);
@@ -55,7 +56,7 @@ export default function ContactModal({ onClose }: { onClose: () => void }) {
             onClose();
           }}
           aria-label="Close"
-          className="absolute top-6 right-6 text-neutral-400 hover:text-black text-lg"
+          className="absolute top-3 right-3 inline-flex h-11 w-11 items-center justify-center rounded-full text-neutral-400 hover:text-black text-lg"
         >
           <FaXmark />
         </button>
@@ -68,16 +69,16 @@ export default function ContactModal({ onClose }: { onClose: () => void }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-neutral-700 mb-1">Your Name</label>
-            <input type="text" name="name" required placeholder="John Doe" className="w-full text-sm px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-lime bg-brand-bg" />
+            <label htmlFor={`${fieldId}-name`} className="block text-xs font-semibold text-neutral-700 mb-1">Your Name</label>
+            <input id={`${fieldId}-name`} type="text" name="name" required placeholder="John Doe" className="w-full text-sm px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-lime bg-brand-bg" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-neutral-700 mb-1">Your Email</label>
-            <input type="email" name="email" required placeholder="john@example.com" className="w-full text-sm px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-lime bg-brand-bg" />
+            <label htmlFor={`${fieldId}-email`} className="block text-xs font-semibold text-neutral-700 mb-1">Your Email</label>
+            <input id={`${fieldId}-email`} type="email" name="email" required placeholder="john@example.com" className="w-full text-sm px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-lime bg-brand-bg" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-neutral-700 mb-1">Message / Project Details</label>
-            <textarea name="message" rows={4} required placeholder="Tell me about your project or inquiry..." className="w-full text-sm px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-lime bg-brand-bg" />
+            <label htmlFor={`${fieldId}-message`} className="block text-xs font-semibold text-neutral-700 mb-1">Message / Project Details</label>
+            <textarea id={`${fieldId}-message`} name="message" rows={4} required placeholder="Tell me about your project or inquiry..." className="w-full text-sm px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-lime bg-brand-bg" />
           </div>
           <button type="submit" className="w-full bg-[#18181B] hover:bg-[#27272A] text-white text-sm font-semibold py-3.5 rounded-xl transition-colors shadow-md">
             Send Message →

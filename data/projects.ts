@@ -8,6 +8,14 @@ export interface Project {
   highlight: string;
   thumb?: string; // path gambar di public/projects/, kosong = tampil tanpa gambar
   mediaHint?: string; // panduan foto yang dibutuhkan (tampil di placeholder)
+  caseStudy?: {
+    operationalUse: string;
+    ownership: string;
+    teamAttribution: string;
+    workflows: string[];
+    capturesNote: string;
+    gallery: { src: string; title: string; alt: string }[];
+  };
 }
 
 export const categories = ["All", "Web App", "CMS", "Mobile"] as const;
@@ -60,6 +68,40 @@ export const projects: Project[] = [
     highlight: "Presensi + shift kerja + PWA",
     mediaHint: "Placeholder 1600×1000 · Dashboard presensi",
     thumb: "/projects/presensi.webp",
+    caseStudy: {
+      operationalUse: "Used operationally for employee attendance and related staff workflows.",
+      ownership: "I owned full-stack development of the employee-facing module.",
+      teamAttribution: "Admin Monitoring was implemented by another team member.",
+      workflows: [
+        "GPS and selfie attendance",
+        "Shift schedules",
+        "Attendance history",
+        "Leave requests",
+      ],
+      capturesNote: "Actual application captures. All displayed data is synthetic demo data.",
+      gallery: [
+        {
+          src: "/projects/presensi-shift-dashboard.png",
+          title: "Shift dashboard",
+          alt: "Employee home screen showing today's attendance controls and weekly shift schedule.",
+        },
+        {
+          src: "/projects/presensi-gps-attendance.png",
+          title: "GPS attendance",
+          alt: "Attendance screen with a face positioning guide, check-in button, and current location map.",
+        },
+        {
+          src: "/projects/presensi-attendance-history.png",
+          title: "Attendance history",
+          alt: "Monthly attendance history with daily check-in and check-out records.",
+        },
+        {
+          src: "/projects/presensi-leave-requests.png",
+          title: "Leave requests",
+          alt: "Employee leave request form with date, request type, reason, and submit action.",
+        },
+      ],
+    },
   },
   {
     id: "graha-mesran",

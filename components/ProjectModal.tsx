@@ -20,6 +20,7 @@ export default function ProjectModal({ project, onClose }: { project: Project; o
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md"
+      data-lenis-prevent
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -102,6 +103,50 @@ export default function ProjectModal({ project, onClose }: { project: Project; o
               </StaggerItem>
             ))}
           </Stagger>
+
+          {project.caseStudy && (
+            <section className="mt-8 border-t border-[#E5E7EB] pt-6" aria-label="Presensi SMS case study">
+              <p className="text-sm leading-relaxed text-neutral-600">{project.caseStudy.operationalUse}</p>
+
+              <div className="mt-5">
+                <h4 className="text-sm font-semibold text-neutral-900">My contribution</h4>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{project.caseStudy.ownership}</p>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{project.caseStudy.teamAttribution}</p>
+              </div>
+
+              <div className="mt-5">
+                <h4 className="text-sm font-semibold text-neutral-900">Employee workflows</h4>
+                <ul className="mt-2 grid grid-cols-1 gap-2 text-sm text-neutral-600 sm:grid-cols-2">
+                  {project.caseStudy.workflows.map((workflow) => (
+                    <li key={workflow}>{workflow}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8 border-t border-[#E5E7EB] pt-6">
+                <h4 className="text-sm font-semibold text-neutral-900">Application screens</h4>
+                <p className="mt-2 text-xs leading-relaxed text-neutral-500">{project.caseStudy.capturesNote}</p>
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {project.caseStudy.gallery.map((screen, index) => (
+                    <figure key={screen.src} className="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-[#FAF9F6]">
+                      <img
+                        src={screen.src}
+                        alt={screen.alt}
+                        width={430}
+                        height={932}
+                        loading="lazy"
+                        decoding="async"
+                        className="block h-auto w-full"
+                      />
+                      <figcaption className="px-3 py-2.5 text-xs font-medium text-neutral-700">
+                        {String(index + 1).padStart(2, "0")} / {screen.title}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           <button
             onClick={onClose}
