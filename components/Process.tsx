@@ -32,7 +32,7 @@ export default function Process() {
   const rm = useReducedMotion();
 
   return (
-    <section id="process" className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process" className="pt-20 pb-12 md:pt-28 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Reveal className="text-center max-w-2xl mx-auto mb-14">
         <span className="text-xs uppercase tracking-widest font-semibold text-neutral-500">
           / Engineering Process

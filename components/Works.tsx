@@ -24,7 +24,7 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
   const filtered = active === "All" ? projects : projects.filter((p) => catLabel[p.category] === active);
 
   return (
-    <section id="works" className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="works" className="pt-12 pb-20 md:pt-16 md:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <span className="text-xs uppercase tracking-widest font-semibold text-neutral-500">/ Portfolio</span>
