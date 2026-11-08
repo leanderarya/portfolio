@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
-import Statement from "@/components/Statement";
 import Process from "@/components/Process";
 import Works from "@/components/Works";
 import Experience from "@/components/Experience";
@@ -25,7 +24,6 @@ export default function Home() {
       <main>
         <Hero onOpenContact={() => setContactOpen(true)} />
         <TechMarquee />
-        <Statement />
         <Process />
         <Works onOpenProject={setActiveProject} />
         <Experience />

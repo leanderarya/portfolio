@@ -1,15 +1,9 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type Variants,
-} from "framer-motion";
-import { FaArrowRight, FaTerminal } from "react-icons/fa6";
-import { EASE, DURATION } from "@/components/motion/primitives";
+import { DURATION, EASE } from '@/components/motion/primitives';
+import { motion, useReducedMotion, useScroll, useTransform, type Variants } from 'framer-motion';
+import { useRef } from 'react';
+import { FaArrowRight, FaTerminal } from 'react-icons/fa6';
 
 export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
   const rm = useReducedMotion();
@@ -17,7 +11,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"],
+    offset: ['start start', 'end start'],
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
@@ -42,12 +36,16 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
   const lineInnerV: Variants = rm
     ? {}
     : {
-        hidden: { y: "110%" },
-        show: { y: "0%", transition: { duration: 0.7, ease: EASE } },
+        hidden: { y: '110%' },
+        show: { y: '0%', transition: { duration: 0.7, ease: EASE } },
       };
 
   return (
-    <section id="about" ref={sectionRef} className="relative pt-8 pb-12 md:pt-14 md:pb-16 overflow-hidden">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="relative pt-8 pb-12 md:pt-14 md:pb-16 overflow-hidden"
+    >
       <div className="absolute inset-0 mesh-gradient-bg pointer-events-none -z-10 opacity-90" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,17 +70,22 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
               <motion.span variants={lineInnerV} className="block">
                 <span className="font-editorial italic font-normal text-5xl sm:text-7xl xl:text-8xl text-neutral-900">
                   Software Engineer
-                </span>{" "}
+                </span>{' '}
                 <span className="text-neutral-500 font-light">&amp;</span> Web Developer
               </motion.span>
             </span>
           </h1>
 
-          <div className="mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="mt-2 lg:mt-4 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Kiri — tipografi tanpa kotak */}
-            <motion.div variants={fadeUpV} className="lg:col-span-3 order-2 lg:order-1 space-y-8 text-center lg:text-left">
+            <motion.div
+              variants={fadeUpV}
+              className="lg:col-span-3 order-2 lg:order-1 space-y-8 text-center lg:text-left"
+            >
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Focus</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
+                  Focus
+                </p>
                 <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
                   Full-Stack Web Apps · CMS &amp; Admin Panels · POS Systems · Android Apps
                 </p>
@@ -90,34 +93,39 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
 
               <div className="divide-y divide-neutral-200 border-y border-neutral-200">
                 <div className="py-4 flex items-baseline gap-4 justify-center lg:justify-start">
-                  <span className="font-mono text-xs text-neutral-400">01</span>
+                  <span className="font-mono text-xs text-neutral-600">01</span>
                   <div>
                     <p className="text-2xl font-bold tracking-tight text-neutral-900">Laravel</p>
                     <p className="mt-0.5 text-xs text-neutral-500">API · Filament · Multi-tenant</p>
                   </div>
                 </div>
                 <div className="py-4 flex items-baseline gap-4 justify-center lg:justify-start">
-                  <span className="font-mono text-xs text-neutral-400">02</span>
+                  <span className="font-mono text-xs text-neutral-600">02</span>
                   <div>
                     <p className="text-2xl font-bold tracking-tight text-neutral-900">React</p>
-                    <p className="mt-0.5 text-xs text-neutral-500">Next.js · Inertia · TypeScript</p>
+                    <p className="mt-0.5 text-xs text-neutral-500">
+                      Next.js · Inertia · TypeScript
+                    </p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
             {/* Tengah — foto arch tanpa kartu */}
-            <motion.div variants={portraitV} className="lg:col-span-6 order-1 lg:order-2 flex justify-center relative">
+            <motion.div
+              variants={portraitV}
+              className="lg:col-span-6 order-1 lg:order-2 flex justify-center relative lg:-top-10"
+            >
               <div className="relative w-full max-w-md aspect-[4/5] rounded-t-full overflow-hidden">
                 <motion.img
                   src="/arya-nobg.webp"
                   alt="Arya Ajisadda"
-                  width={1200}
-                  height={1500}
+                  width={1920}
+                  height={1200}
                   fetchPriority="high"
                   decoding="async"
                   style={rm ? undefined : { y: parallaxY }}
-                  className="absolute inset-0 h-full w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
                 />
                 <div className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 bg-[#18181B]/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">
                   <FaTerminal className="text-lime mr-1.5 inline" /> Full-Stack Developer
@@ -126,16 +134,21 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
             </motion.div>
 
             {/* Kanan — bio + CTA */}
-            <motion.div variants={fadeUpV} className="lg:col-span-3 order-3 space-y-7 text-center lg:text-left">
+            <motion.div
+              variants={fadeUpV}
+              className="lg:col-span-3 order-3 space-y-7 text-center lg:text-left"
+            >
               <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                I engineer web applications, CMS platforms, and POS systems that real businesses run on daily — owning everything from database schema to the final pixel, from first commit to production.
+                I engineer web applications, CMS platforms, and POS systems that real businesses run
+                on daily — owning everything from database schema to the final pixel, from first
+                commit to production.
               </p>
               <div className="space-y-3">
                 <button
                   onClick={onOpenContact}
                   className="group w-full inline-flex items-center justify-center gap-3 bg-[#18181B] hover:bg-[#27272A] text-white text-sm font-semibold px-6 py-4 rounded-full transition-all hover:-translate-y-0.5"
                 >
-                  Get in Touch{" "}
+                  Get in Touch{' '}
                   <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
                 </button>
                 <a
