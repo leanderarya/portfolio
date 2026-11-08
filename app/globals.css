@@ -24,6 +24,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Avoid subpixel parallax lag between Lenis's RAF and Framer Motion's scroll observer. */
+html.lenis .hero-parallax {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
+}
+
 .font-editorial {
   font-family: var(--font-serif);
 }

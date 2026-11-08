@@ -23,7 +23,7 @@ export default function Statement() {
   return (
     <section className="py-16 sm:py-24 bg-[#FAF9F6] border-y border-[#E5E7EB]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <span className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Philosophy</span>
+        <span className="text-xs font-bold text-neutral-600 uppercase tracking-widest">Philosophy</span>
 
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-neutral-900 leading-snug mt-4">
           <motion.span className="inline-block" {...phraseIn(0)}>

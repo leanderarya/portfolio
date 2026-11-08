@@ -65,7 +65,7 @@ export default function Process() {
                   {s.title}
                 </h3>
                 <p className="text-sm text-neutral-600 leading-relaxed">{s.desc}</p>
-                <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-neutral-400 transition-colors group-hover:text-lime-600">
+                <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-neutral-600 transition-colors group-hover:text-lime-600">
                   {s.icon}
                   <span>{s.tag}</span>
                 </div>

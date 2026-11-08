@@ -125,7 +125,7 @@ export default function Hero({ onOpenContact }: { onOpenContact: () => void }) {
                   fetchPriority="high"
                   decoding="async"
                   style={rm ? undefined : { y: parallaxY }}
-                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  className="hero-parallax absolute inset-0 h-full w-full object-cover object-top"
                 />
                 <div className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 bg-[#18181B]/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">
                   <FaTerminal className="text-lime mr-1.5 inline" /> Full-Stack Developer

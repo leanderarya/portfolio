@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import LocalLenisExperiment from "@/components/LocalLenisExperiment";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -38,6 +40,7 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
       <body className="antialiased">
+        <LocalLenisExperiment />
         {children}
       </body>
     </html>

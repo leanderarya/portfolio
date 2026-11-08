@@ -35,7 +35,7 @@ export default function TechMarquee() {
   return (
     <section className="py-10 border-y border-[#E5E7EB]/70 bg-white/60 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-4 text-center">
-        <span className="text-xs uppercase tracking-widest font-semibold text-neutral-400">
+        <span className="text-xs uppercase tracking-widest font-semibold text-neutral-600">
           Core Technologies & Ecosystem
         </span>
       </div>

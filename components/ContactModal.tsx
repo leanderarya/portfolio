@@ -61,7 +61,7 @@ export default function ContactModal({ onClose }: { onClose: () => void }) {
         </button>
 
         <div className="mb-6">
-          <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider">Contact Me</span>
+          <span className="text-xs font-bold text-neutral-600 uppercase tracking-wider">Contact Me</span>
           <h3 className="text-2xl font-editorial text-neutral-900 mt-1">Get in Touch</h3>
           <p className="text-xs text-neutral-500 mt-1">Tell me about your project — I&apos;ll get back to you.</p>
         </div>
