@@ -20,3 +20,5 @@ npm run build    # static export → out/
 ## Deploy
 
 Static export → Vercel. Push repo, connect di Vercel.
+
+Prosedur dan pemeriksaan rilis: [Deployment runbook](docs/deployment-runbook.md).
